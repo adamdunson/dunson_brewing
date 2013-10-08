@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'mysql2'
@@ -10,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
   gem 'therubyracer', platforms: :ruby
 end
 
