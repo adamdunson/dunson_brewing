@@ -1,0 +1,10 @@
+.header
+  .logo
+    = link_to 'Dunson Brewing', root_path
+  .user-links
+    - if user_signed_in?
+      Hello,
+      = link_to current_user.display_name, { controller: 'users', action: 'profile', id: current_user.id }
+      = link_to 'Sign out', destroy_user_session_path
+    - else
+      = link_to 'Sign in', new_user_session_path
