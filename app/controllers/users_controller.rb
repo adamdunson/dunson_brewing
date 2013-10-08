@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   # GET /profile/:id
+  # GET /profile
   def profile
-    if params[:id]
-      @user = User.where(id: params[:id]).first
-    elsif user_signed_in?
+    @user = User.find_by_id(params[:id])
+    if @user.nil? && user_signed_in?
       @user = current_user
     end
 

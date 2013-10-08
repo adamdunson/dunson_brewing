@@ -1,18 +1,17 @@
-class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+class Admin::PostsController < AdminController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(:id).page params[:page]
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     if @post.nil?
-      redirect_to posts_path
+      redirect_to admin_posts_path
     end
   end
 
@@ -32,7 +31,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to [:admin, @post], notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
@@ -46,7 +45,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to [:admin, @post], notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -60,7 +59,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to admin_posts_url }
       format.json { head :no_content }
     end
   end

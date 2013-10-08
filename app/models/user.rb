@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :registerable, :confirmable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable,
-    :trackable, :validatable, :lockable
+    :trackable, :validatable, :lockable, :registerable
+  has_many :posts
+  paginates_per 10
 
   def display_name
     if read_attribute(:display_name).blank?
