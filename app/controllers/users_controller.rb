@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     if @user.nil?
-      flash[:alert] = "User \##{params[:id]} does not exist."
+      flash[:alert] = "User ID #{params[:id]} does not exist."
       redirect_to root_path
     end
   end

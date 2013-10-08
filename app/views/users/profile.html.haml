@@ -1,4 +1,11 @@
 %h1 #{@user.display_name}'s Profile
 
-%p.real-name #{@user.first_name} #{@user.last_name}
-%p.about-me= @user.about_me
+%dl
+  %dt Real name
+  %dd #{@user.first_name} #{@user.last_name}
+
+  %dt About me
+  %dd= @user.about_me || "Nothing yet..."
+
+  %dt Account created
+  %dd= @user.created_at.strftime(I18n.t 'date.formats.default')

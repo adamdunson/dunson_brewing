@@ -3,4 +3,16 @@ class User < ActiveRecord::Base
   # :registerable, :confirmable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable,
     :trackable, :validatable, :lockable
+
+  def display_name
+    if read_attribute(:display_name).blank?
+      "#{first_name} #{last_name}"
+    else
+      read_attribute(:display_name)
+    end
+  end
+
+  def to_s
+    display_name
+  end
 end

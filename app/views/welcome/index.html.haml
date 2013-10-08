@@ -1,1 +1,17 @@
 %h1 Fáilte!
+
+- if @posts.blank?
+  .empty No posts found!
+
+-else
+  - @posts.each do |post|
+    .post
+      .title= post.title
+      .by-line
+        Posted by
+        = link_to post.author, profile_path(post.author), class: 'display-name'
+        on
+        %span{ title: post.created_at }= post.created_at.strftime(I18n.t 'date.formats.default')
+      .body= post.body
+
+= paginate @posts

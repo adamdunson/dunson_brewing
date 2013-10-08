@@ -4,7 +4,8 @@
   .user-links
     - if user_signed_in?
       Hello,
-      = link_to current_user.display_name, { controller: 'users', action: 'profile', id: current_user.id }
-      = link_to 'Sign out', destroy_user_session_path
+      = link_to current_user.display_name, '/profile', class: 'display-name'
+      = link_to 'Admin', admin_path
+      = link_to 'Sign out', destroy_user_session_path, method: :delete
     - else
       = link_to 'Sign in', new_user_session_path
