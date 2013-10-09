@@ -1,75 +1,35 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require_self
- *= require_tree .
+ *= require layout
+ *= require welcome
  */
 
 body
   margin: 0
+  background-color: #fff
+  color: #333
+  font-family: verdana, arial, helvetica, sans-serif
+  font-size: 13px
 
-#wrapper
-  margin: 0 auto
-  padding: 0.5em 0
-  width: 100%
+h1, h2, h3, h4, h5, h6
+  margin-top: 0
 
-  #header
-    overflow: auto
-    padding: 0 0.5em
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: 11px
+  white-space: pre-wrap       /* css-3 */
+  white-space: -moz-pre-wrap  /* Mozilla, since 1999 */
+  white-space: -pre-wrap      /* Opera 4-6 */
+  white-space: -o-pre-wrap    /* Opera 7 */
+  word-wrap: break-word
 
-    .logo
-      position: relative
+a
+  color: #666
+  text-decoration: none
+  &:hover
+    text-decoration: underline
 
-    .user-links
-      position: absolute
-      top: 0.5em
-      right: 0.5em
-
-  ul#nav
-    position: relative
-    z-index: 1
-    text-align: center
-    margin: 0
-    padding: 0
-    list-style-type: none
-
-    li
-      text-align: center
-      border-radius: 4px 4px 0 0
-      border: 1px solid #000
-      border-bottom: none
-      display: inline-block
-      width: 100px
-
-    li.current
-      border-bottom: 1px solid #fff
-
-    a
-      display: block
-      text-decoration: none !important
-
-  #content
-    position: relative
-    border-top: 1px solid #000
-    top: -1px
-    padding: 1em 0.5em 0
-
-  #footer
-    font-size: 75%
-    width: auto
-    position: relative
-    overflow: auto
-    text-align: center
-
-a.profile-link
-  color: #000 !important
-  font-weight: bold !important
-  text-decoration: none !important
-  font-size: 85%
+p, ol, ul
+  font-size: 13px
+  line-height: 18px

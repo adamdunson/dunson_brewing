@@ -1,0 +1,80 @@
+html, body
+  height: 100%
+
+a.profile-link
+  color: #000 !important
+  font-weight: bold !important
+  text-decoration: none !important
+  font-size: 85%
+
+.notice
+  color: green
+
+.alert
+  color: red
+
+#messages
+  position: absolute
+  width: 50%
+  top: 0
+  left: 0
+  right: 0
+  margin: 0 auto
+  text-align: center
+
+#wrapper
+  margin: 0 auto
+  width: 100%
+  min-height: 100%
+  height: auto !important
+  margin: 0 auto -20px /* negative margin must equal #push, #footer height plus additional padding/margin */
+
+  #header
+    overflow: auto
+    padding: 0.5em 0.5em 0
+    height: 5em
+
+    .logo
+      position: relative
+
+    .user-links
+      position: absolute
+      top: 0.5em
+      right: 0.5em
+
+  ul#nav
+    position: relative
+    z-index: 1
+    text-align: center
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    li
+      text-align: center
+      border-radius: 4px 4px 0 0
+      border: 1px solid #000
+      border-bottom: none
+      display: inline-block
+      width: 100px
+
+    li.current
+      border-bottom: 1px solid #fff
+
+    a
+      display: block
+      text-decoration: none !important
+
+  #content
+    position: relative
+    border-top: 1px solid #000
+    top: -1px
+    padding: 1em 0.5em 0
+
+  #push
+    height: 20px /* #push must equal #footer height */
+
+#footer
+  height: 20px /* #footer must equal #push height */
+  font-size: 10px
+  text-align: center

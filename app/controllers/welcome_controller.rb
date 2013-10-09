@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   # GET /index
   def index
-    @posts = Post.order(:id).page params[:page]
+    @posts = Post.order('id DESC').page params[:page]
   end
 end

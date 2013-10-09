@@ -1,6 +1,7 @@
 %h1 Listing posts
 
-%table
+= link_to 'New Post', new_admin_post_path
+%table.index
   %tr
     %th Title
     %th Author
@@ -11,11 +12,7 @@
   - @posts.each do |post|
     %tr
       %td= post.title
-      %td= post.author
+      %td= link_to post.author
       %td= link_to 'Show', [:admin, post]
       %td= link_to 'Edit', edit_admin_post_path(post)
       %td= link_to 'Destroy', [:admin, post], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_admin_post_path

@@ -1,6 +1,7 @@
 %h1 Listing users
 
-%table
+= link_to 'New User', new_admin_user_path
+%table.index
   %tr
     %th Email
     %th First name
@@ -22,7 +23,3 @@
         %td.disabled Destroy
       -else
         %td= link_to 'Destroy', [:admin, user], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_admin_user_path
