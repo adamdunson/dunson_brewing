@@ -9,7 +9,7 @@
       .title= post.title
       .by-line
         Posted by
-        = link_to post.author, profile_path(post.author), class: 'display-name'
+        = link_to post.author, profile_path(post.author), class: 'profile-link'
         on
         %span{ title: post.created_at }= post.created_at.strftime(I18n.t 'date.formats.default')
       .body= post.body

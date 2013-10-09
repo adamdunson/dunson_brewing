@@ -5,7 +5,12 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = render partial: 'layouts/header'
-    .notice= notice
-    .alert= alert
-    = yield
+    #wrapper
+      = render partial: 'layouts/messages'
+      = render partial: 'layouts/header'
+      = render partial: 'layouts/nav'
+
+      #content
+        = yield
+
+      = render partial: 'layouts/footer'

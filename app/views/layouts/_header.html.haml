@@ -1,10 +1,10 @@
-.header
+#header
   .logo
     = link_to 'Dunson Brewing', root_path
   .user-links
     - if user_signed_in?
       Hello,
-      = link_to current_user.display_name, '/profile', class: 'display-name'
+      = link_to current_user.display_name, '/profile', class: 'profile-link'
       = link_to 'Admin', admin_path
       = link_to 'Sign out', destroy_user_session_path, method: :delete
     - else
