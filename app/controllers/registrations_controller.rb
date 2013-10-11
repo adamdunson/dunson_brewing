@@ -14,7 +14,8 @@ class RegistrationsController < Devise::RegistrationsController
     if successfully_updated
       set_flash_message :notice, :updated
       sign_in @user, :bypass => true
-      redirect_to after_update_path_for(@user)
+      #redirect_to after_update_path_for(@user)
+      redirect_to profile_path(@user)
     else
       render :edit
     end
@@ -24,12 +25,13 @@ class RegistrationsController < Devise::RegistrationsController
 
   def needs_password?(user, params)
     user.email != params[:user][:email] ||
+      user.username != params[:user][:username] ||
       params[:user][:password].present?
   end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:first_name, :last_name, :display_name, :about_me, :email, :password, :password_confirmation)
+      u.permit(:first_name, :last_name, :display_name, :about_me, :email, :username, :password, :password_confirmation, :current_password)
     end
   end
 end

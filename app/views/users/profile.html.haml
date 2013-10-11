@@ -5,7 +5,7 @@
 %dl
   - if user_signed_in? && current_user == @user
     %dt Real name
-    %dd #{@user.first_name} #{@user.last_name}
+    %dd #{@user.real_name}
 
   %dt About me
   %dd= @user.about_me
