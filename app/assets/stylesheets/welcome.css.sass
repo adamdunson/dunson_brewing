@@ -1,6 +1,25 @@
-.post
-  padding-bottom: 2em
-  .title
-    font-size: 125%
+.box
+  width: 50%
+  float: left
 
-  .by-line
+  &:nth-child(even) .wrapper
+    margin-left: 0.5em
+    margin-right: 0.25em
+
+  &:nth-child(odd) .wrapper
+    margin-left: 0.25em
+    margin-right: 0.5em
+
+  .wrapper
+    border: 1px solid black
+    padding: 0.5em
+    margin: 0 0 0.5em
+
+.blog
+  .post
+    overflow: auto
+    word-wrap: break-word
+    padding-bottom: 2em
+    .title
+      font-size: 125%
+    .by-line

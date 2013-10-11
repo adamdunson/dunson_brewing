@@ -4,14 +4,16 @@ html, body
 a.profile-link
   color: #000 !important
   font-weight: bold !important
-  text-decoration: none !important
-  font-size: 85%
+  font-size: 12px
 
 .notice
   color: green
 
 .alert
   color: red
+
+.pagination
+  text-align: center
 
 #messages
   position: absolute
@@ -22,7 +24,7 @@ a.profile-link
   margin: 0 auto
   text-align: center
 
-#wrapper
+body > .wrapper
   margin: 0 auto
   width: 100%
   min-height: 100%
@@ -42,7 +44,7 @@ a.profile-link
       top: 0.5em
       right: 0.5em
 
-  ul#nav
+  #nav
     position: relative
     z-index: 1
     text-align: center
@@ -50,7 +52,9 @@ a.profile-link
     padding: 0
     list-style-type: none
 
-    li
+    a
+      display: block
+      text-decoration: none !important
       text-align: center
       border-radius: 4px 4px 0 0
       border: 1px solid #000
@@ -58,18 +62,15 @@ a.profile-link
       display: inline-block
       width: 100px
 
-    li.current
-      border-bottom: 1px solid #fff
-
-    a
-      display: block
-      text-decoration: none !important
+      &.current
+        border-bottom: 1px solid #fff
 
   #content
     position: relative
     border-top: 1px solid #000
     top: -1px
     padding: 1em 0.5em 0
+    overflow: auto
 
   #push
     height: 20px /* #push must equal #footer height */

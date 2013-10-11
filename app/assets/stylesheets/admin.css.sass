@@ -7,21 +7,27 @@ table
   width: 100%
 
   tr
-    &:first-child
-      border-bottom: 1px solid #000
-
     th, td
       padding: 0.5em
       text-align: left
 
+  &.index
+    tr
+      &:first-child
+        border-bottom: 1px solid #000
+
+      &:nth-child(2n+3)
+        background-color: #e0e0e0
+
+    th, td
       &:nth-last-child(-n+3)
         width: 0
         white-space: nowrap
 
-  &.index
-    tr
-      &:nth-child(2n+3)
-        background-color: #e0e0e0
+dl
+  dt, dd
+    word-wrap: break-word
+    word-break: break-all
 
 .field_with_errors
   padding: 2px

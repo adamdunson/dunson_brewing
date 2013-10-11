@@ -2,9 +2,10 @@ class UsersController < ApplicationController
   # GET /profile/:id
   # GET /profile
   def profile
-    @user = User.find_by_id(params[:id])
-    if @user.nil? && user_signed_in?
+    if params[:id].nil? && user_signed_in?
       @user = current_user
+    else
+      @user = User.find_by_id(params[:id])
     end
 
     if @user.nil?

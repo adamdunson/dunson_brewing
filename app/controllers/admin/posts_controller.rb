@@ -31,7 +31,7 @@ class Admin::PostsController < AdminController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to [:admin, @post], notice: 'Post was successfully created.' }
+        format.html { redirect_to admin_posts_path, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }

@@ -32,7 +32,7 @@ class Admin::UsersController < AdminController
     respond_to do |format|
       if @user.save
         @user.send_reset_password_instructions
-        format.html { redirect_to [:admin, @user], notice: 'User was successfully created.' }
+        format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }

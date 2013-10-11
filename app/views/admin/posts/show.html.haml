@@ -1,22 +1,21 @@
-%h1 Showing post
-
-%table.show-table
-  %tr
-    %td Title:
-    %td= @post.title
-  %tr
-    %td Body:
-    %td= @post.body
-  %tr
-    %td Author:
-    %td= link_to @post.author, admin_user_path(@post.author)
-  %tr
-    %td Created at:
-    %td= @post.created_at
-  %tr
-    %td Updated at:
-    %td= @post.updated_at
-
 = link_to 'Edit', edit_admin_post_path(@post)
 \|
 = link_to 'Back', admin_posts_path
+
+%h1 Showing post
+
+%dl
+  %dt Title:
+  %dd= @post.title
+
+  %dt Body:
+  %dd= @post.body
+
+  %dt Author:
+  %dd= link_to(@post.author, admin_user_path(@post.author)) if @post.author
+
+  %dt Created at:
+  %dd= @post.created_at
+
+  %dt Updated at:
+  %dd= @post.updated_at

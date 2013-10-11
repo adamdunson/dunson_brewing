@@ -1,18 +1,21 @@
 %h1 Fáilte!
 
 .blog
-  - if @posts.blank?
-    .empty No posts found!
+  .wrapper
+    %h2.title News
 
-  -else
-    - @posts.each do |post|
-      .post
-        .title= post.title
-        .by-line
-          Posted by
-          = link_to post.author, profile_path(post.author), class: 'profile-link'
-          on
-          %span{ title: post.created_at }= post.created_at.strftime(I18n.t 'date.formats.default')
-        .body= post.body
+    - if @posts.blank?
+      .empty No posts found!
 
-= paginate @posts
+    -else
+      - @posts.each do |post|
+        .post
+          .title= post.title
+          .by-line
+            Posted by
+            = post.author ? link_to(post.author, profile_path(post.author.id), { class: 'profile-link' }) : post.default_author
+            on
+            %span{ title: post.created_at }= post.created_at.strftime(I18n.t 'date.formats.default')
+          .body= post.body
+
+      = paginate @posts

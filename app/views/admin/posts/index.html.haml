@@ -1,8 +1,10 @@
 %h1 Listing posts
 
 = link_to 'New Post', new_admin_post_path
+= paginate @posts
 %table.index
   %tr
+    %th ID
     %th Title
     %th Author
     %th
@@ -11,8 +13,9 @@
 
   - @posts.each do |post|
     %tr
+      %td= post.id
       %td= post.title
-      %td= link_to post.author
+      %td= post.author ? link_to(post.author, admin_user_path(post.author.id), { class: 'profile-link' }) : post.default_author
       %td= link_to 'Show', [:admin, post]
       %td= link_to 'Edit', edit_admin_post_path(post)
       %td= link_to 'Destroy', [:admin, post], :method => :delete, :data => { :confirm => 'Are you sure?' }
