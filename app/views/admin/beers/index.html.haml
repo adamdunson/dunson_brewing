@@ -1,0 +1,21 @@
+%h1 Listing beers
+
+= link_to 'New Beer', new_admin_beer_path
+= paginate @beers
+%table
+  %tr
+    %th Name
+    %th Style
+    %th Description
+    %th
+    %th
+    %th
+
+  - @beers.each do |beer|
+    %tr
+      %td= beer.name
+      %td= beer.style ? link_to(beer.style, [:admin, beer.style]) : Beer.default_style
+      %td= beer.description
+      %td= link_to 'Show', [:admin, beer]
+      %td= link_to 'Edit', edit_admin_beer_path(beer)
+      %td= link_to 'Destroy', [:admin, beer], :method => :delete, :data => { :confirm => 'Are you sure?' }

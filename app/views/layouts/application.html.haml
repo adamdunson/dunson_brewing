@@ -13,6 +13,7 @@
       = render partial: 'layouts/nav'
 
       #content
+        = render partial: 'admin/subnav' if admin_section? && lookup_context.template_exists?('subnav', ['admin'], true)
         = yield
 
       #push

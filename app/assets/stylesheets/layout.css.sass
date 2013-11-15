@@ -29,7 +29,7 @@ body > .wrapper
   width: 100%
   min-height: 100%
   height: auto !important
-  margin: 0 auto -20px /* negative margin must equal #push, #footer height plus additional padding/margin */
+  margin: 0 auto -20px /* negative margin must equal #push height & #footer height */
 
   #header
     overflow: auto
@@ -61,6 +61,7 @@ body > .wrapper
       border-bottom: none
       display: inline-block
       width: 100px
+      margin-bottom: -1px
 
       &.current
         border-bottom: 1px solid #fff
@@ -68,14 +69,13 @@ body > .wrapper
   #content
     position: relative
     border-top: 1px solid #000
-    top: -1px
     padding: 1em 0.5em 0
     overflow: auto
 
   #push
-    height: 20px /* #push must equal #footer height */
+    height: 20px /* #push height must equal #footer height */
 
 #footer
-  height: 20px /* #footer must equal #push height */
+  height: 20px /* #footer height must equal #push height */
   font-size: 10px
   text-align: center

@@ -1,8 +1,6 @@
-= link_to 'Edit', edit_admin_user_path(@user)
-\|
-= link_to 'Back', admin_users_path
-
-%h1 Showing user
+.header
+  %h1 Showing user
+  = link_to 'edit', edit_admin_user_path(@user)
 
 %dl
   %dt ID:

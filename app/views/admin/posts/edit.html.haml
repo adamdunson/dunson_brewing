@@ -1,7 +1,5 @@
-= link_to 'Show', [:admin, @post]
-\|
-= link_to 'Back', admin_posts_path
-
-%h1 Editing post
+.header
+  %h1 Editing post
+  = link_to 'show', [:admin, @post]
 
 = render 'form'

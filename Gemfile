@@ -11,16 +11,20 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'devise'
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-  gem 'therubyracer', platforms: :ruby
-end
-
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'kaminari'
 
-#gem 'debugger', group: [:development, :test]
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'therubyracer', platforms: :ruby
+end
+
+group :development do
+  gem 'faker'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'debugger'
+end

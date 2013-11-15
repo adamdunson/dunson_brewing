@@ -3,8 +3,11 @@ DunsonBrewing::Application.routes.draw do
 
   get 'admin', to: 'admin#index'
   namespace :admin do
-    resources :users
+    resources :beers
+    resources :beer_styles
+    resources :beer_style_categories
     resources :posts
+    resources :users
   end
 
   devise_for :users, skip: [:registrations]
@@ -14,4 +17,7 @@ DunsonBrewing::Application.routes.draw do
   end
   get 'profile/:id', to: 'users#profile', as: 'profile'
   get 'profile', to: 'users#profile'
+
+  get 'beer', to: 'welcome#beer'
+  get 'who', to: 'welcome#who'
 end

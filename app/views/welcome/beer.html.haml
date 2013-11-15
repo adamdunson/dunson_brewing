@@ -1,0 +1,16 @@
+%h1 Beer
+
+- if @beers.blank?
+  .empty No beers found!
+
+-else
+  - @beers.each do |beer|
+    %ul
+      %li
+        = beer.name
+        %ul
+          %li= "Category: #{beer.style.category}"
+          %li= "Style: #{beer.style}"
+          %li= "Description: #{beer.description}"
+
+  = paginate @beers

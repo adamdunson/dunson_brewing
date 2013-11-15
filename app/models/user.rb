@@ -32,14 +32,14 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    display_name
+    self.display_name
   end
 
   private
 
   def prepare_fields
     # username
-    if self.username.nil? || self.username.gsub(/^[[:space:]]*(.+)[[:space:]]*$/, '\1').blank?
+    if self.username.nil? || self.username.blank?
       self.username = self.email.gsub(/(.*)@.+/, '\1')
     end
 
@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
       self.real_name
     ]
     display_names.each do |display_name|
-      self.display_name = display_name if self.display_name.nil? || self.display_name.gsub(/^[[:space:]]*(.+)[[:space:]]*$/, '\1').blank?
+      self.display_name = display_name if self.display_name.nil? || self.display_name.blank?
     end
   end
 end

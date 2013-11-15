@@ -1,0 +1,19 @@
+%h1 Listing beer style categories
+
+= link_to 'New Beer style category', new_admin_beer_style_category_path
+= paginate @beer_style_categories
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @beer_style_categories.each do |beer_style_category|
+    %tr
+      %td= beer_style_category.name
+      %td= beer_style_category.description
+      %td= link_to 'Show', [:admin, beer_style_category]
+      %td= link_to 'Edit', edit_admin_beer_style_path(beer_style_category)
+      %td= link_to 'Destroy', [:admin, beer_style_category], :method => :delete, :data => { :confirm => 'Are you sure?' }

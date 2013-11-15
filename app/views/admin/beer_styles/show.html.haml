@@ -1,0 +1,22 @@
+.header
+  %h1 Showing beer style
+  = link_to 'edit', edit_admin_beer_style_path(@beer_style)
+
+%dl
+  %dt Name:
+  %dd= @beer_style.name
+
+  %dt Recipe:
+  %dd= @beer_style.recipe
+
+  %dt Description:
+  %dd= @beer_style.description
+
+  %dt Category:
+  %dd= @beer_style.category ? link_to(@beer_style.category, [:admin, @beer_style.category]) : BeerStyle.default_category
+
+  %dt Beers:
+  %dd
+    %ul
+      - @beer_style.beers.each do |beer|
+        %li= link_to beer, [:admin, beer]

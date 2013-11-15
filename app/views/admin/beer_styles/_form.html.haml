@@ -1,0 +1,35 @@
+= form_for [:admin, @beer_style] do |f|
+  - if @beer_style.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@beer_style.errors.count, "error")} prohibited this beer_style from being saved:"
+      %ul
+        - @beer_style.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :recipe
+    = f.text_area :recipe
+  .field
+    = f.label :description
+    = f.text_area :description
+
+  .field
+    = f.label :beer_style_category_id
+    = f.select :beer_style_category_id, BeerStyleCategory.order(:id).collect { |beer_style_category| [beer_style_category.name, beer_style_category.id] }, { include_blank: BeerStyle.default_category }
+    %a.new-option new
+
+    .new-option-fields
+      %h3.title New Beer Style Category
+      %a.cancel
+      .field
+        = label_tag 'beer_style[beer_style_category_attributes][name]', 'Name'
+        = text_field_tag 'beer_style[beer_style_category_attributes][name]'
+      .field
+        = label_tag 'beer_style[beer_style_category_attributes][description]', 'Description'
+        = text_area_tag 'beer_style[beer_style_category_attributes][description]'
+
+  .actions
+    = f.submit 'Save'

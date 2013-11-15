@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011185013) do
+ActiveRecord::Schema.define(version: 20131015155855) do
+
+  create_table "beer_style_categories", force: true do |t|
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "beer_styles", force: true do |t|
+    t.string   "name",                   null: false
+    t.text     "recipe"
+    t.text     "description"
+    t.integer  "beer_style_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beer_styles", ["beer_style_category_id"], name: "index_beer_styles_on_beer_style_category_id", using: :btree
+
+  create_table "beers", force: true do |t|
+    t.string   "name",          null: false
+    t.integer  "beer_style_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beers", ["beer_style_id"], name: "index_beers_on_beer_style_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
