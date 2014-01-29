@@ -1,7 +1,5 @@
--#%h1 Admin
-%ul
-  %li= link_to 'Beer', admin_beers_path
-  %li= link_to 'Beer Styles', admin_beer_styles_path
-  %li= link_to 'Beer Style Categories', admin_beer_style_categories_path
-  %li= link_to 'Posts', admin_posts_path
-  %li= link_to 'Users', admin_users_path
+#subnav
+  %ul
+    - admin_subnav_pages.each do |page_name, path|
+      %li{ style: "width: #{100/admin_subnav_pages.count}%" }
+        = link_to page_name, path, { class: ('current' if current_page? path) }
