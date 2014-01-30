@@ -4,11 +4,13 @@ module ApplicationHelper
   end
 
   def nav_pages
-    {
+    nav = {
       'Home' => root_path,
       'Beer' => '/beer',
       'Who' => '/who'
     }
+    nav['Admin'] = admin_path if user_signed_in?
+    nav
   end
 
   def admin_subnav_pages
@@ -19,5 +21,10 @@ module ApplicationHelper
       'Posts' => admin_posts_path,
       'Users' => admin_users_path
     }
+  end
+
+  def markdown(content)
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true, fenced_code_blocks: true)
+    @markdown.render(content)
   end
 end

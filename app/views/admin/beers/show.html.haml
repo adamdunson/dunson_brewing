@@ -10,4 +10,10 @@
   %dd= @beer.style ? link_to(@beer.style, [:admin, @beer.style]) : Beer.default_style
 
   %dt Description:
-  %dd= @beer.description
+  %dd!= markdown @beer.description
+
+  %dt Recipe:
+  %dd!= markdown @beer.recipe
+
+  %dt Brew Date:
+  %dd= @beer.brew_date

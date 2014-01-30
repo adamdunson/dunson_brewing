@@ -2,11 +2,17 @@
  *= require_self
  *= require_tree ./admin/
  */
+
+@import 'colors'
+
 table
   border-collapse: collapse
   width: 100%
 
   tr
+    th
+      font-family: 'Artifika', serif
+
     th, td
       padding: 0.5em
       text-align: left
@@ -14,15 +20,19 @@ table
   &.index
     tr
       &:first-child
-        border-bottom: 1px solid #000
+        border-bottom: 1px solid $color4
 
       &:nth-child(2n+3)
         background-color: #e0e0e0
 
-    th, td
-      &:nth-last-child(-n+3)
-        width: 0
-        white-space: nowrap
+      th, td
+        &:nth-last-child(-n+3)
+          width: 0
+          white-space: nowrap
+          font-size: 80%
+
+      td.disabled
+        text-decoration: line-through
 
 dl
   dt, dd
@@ -54,7 +64,7 @@ div
     margin: -7px
     margin-bottom: 0px
     background-color: #c00
-    color: #fff
+    color: $color6
 
   ul li
     font-size: 12px
@@ -69,7 +79,7 @@ div
 .new-option-fields
   display: none
   position: relative
-  border: 1px solid #000
+  border: 1px solid $color4
   padding: 0.5em
 
   h3.title

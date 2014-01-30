@@ -15,7 +15,7 @@ class Admin::BeersController < AdminController
   # GET /beers/new
   def new
     @beer = Beer.new
-    @beer.build_beer_style
+    #@beer.build_beer_style
   end
 
   # GET /beers/1/edit
@@ -71,9 +71,9 @@ class Admin::BeersController < AdminController
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
       if BeerStyle.new(params.require(:beer).dup.permit!['beer_style_attributes']).valid?
-        params.require(:beer).permit(:name, :description, beer_style_attributes: [:name, :description])
+        params.require(:beer).permit(:name, :description, :recipe, :brew_date, beer_style_attributes: [:name, :description])
       else
-        params.require(:beer).permit(:name, :beer_style_id, :description)
+        params.require(:beer).permit(:name, :beer_style_id, :description, :recipe, :brew_date)
       end
     end
 end

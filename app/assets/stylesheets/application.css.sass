@@ -1,21 +1,31 @@
 /*
  *= require_self
- *= require layout
- *= require welcome
+ *= require jquery.ui.all
+ *= require 'layout'
+ *= require 'welcome'
  */
+
+@import 'colors'
+@import url(http://fonts.googleapis.com/css?family=Artifika)
+
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
 
 body
   margin: 0
-  background-color: #fff
-  color: #333
-  font-family: verdana, arial, helvetica, sans-serif
+  background-color: $color2
+  color: $color4
+  font-family: helvetica, arial, verdana, sans-serif
   font-size: 13px
 
 h1, h2, h3, h4, h5, h6
   margin-top: 0
+  font-family: 'Artifika', serif
 
 pre
-  background-color: #eee
+  background-color: $color3
   padding: 10px
   font-size: 11px
   white-space: pre-wrap       /* css-3 */
@@ -26,7 +36,7 @@ pre
 
 a
   cursor: pointer
-  color: #666
+  color: $color5
   text-decoration: none
   &:hover
     text-decoration: underline

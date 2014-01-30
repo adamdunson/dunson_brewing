@@ -1,4 +1,4 @@
-$(document).on 'page:load', ->
+$(document).ready ->
   $('.field .new-option').click ->
     $(this).hide()
     $(this).siblings('.select').prop('disabled', true)

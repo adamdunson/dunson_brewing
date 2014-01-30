@@ -5,8 +5,6 @@
 %table.index
   %tr
     %th Name
-    %th Recipe
-    %th Description
     %th Category
     %th
     %th
@@ -15,8 +13,6 @@
   - @beer_styles.each do |beer_style|
     %tr
       %td= beer_style.name
-      %td= beer_style.recipe
-      %td= beer_style.description
       %td= beer_style.category ? link_to(beer_style.category, [:admin, beer_style.category]) : BeerStyle.default_category
       %td= link_to 'Show', [:admin, beer_style]
       %td= link_to 'Edit', edit_admin_beer_style_path(beer_style)
