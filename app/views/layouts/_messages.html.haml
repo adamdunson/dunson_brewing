@@ -1,3 +1,5 @@
 #messages
-  .notice.fade-out= notice
-  .alert.fade-out= alert
+  - unless notice.blank?
+    .notice.fade-out= notice
+  - unless alert.blank?
+    .alert.fade-out= alert

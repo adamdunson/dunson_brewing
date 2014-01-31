@@ -12,10 +12,10 @@ a.profile-link
   color: $color10 !important
 
 .notice
-  color: green
+  //color: green
 
 .alert
-  color: red
+  //color: red
 
 .pagination
   text-align: center
@@ -33,8 +33,17 @@ body > .wrapper
     top: 0
     left: 0
     right: 0
-    margin: 50% auto
+    margin: 0 auto
     text-align: center
+    z-index: 1
+
+    div
+      padding: 0.5em
+      background-color: $color7
+      border-radius: 0 0 5px 5px
+      border-bottom: 1px solid $color4
+      border-left: 1px solid $color4
+      border-right: 1px solid $color4
 
   #header
     font-family: 'Artifika', serif

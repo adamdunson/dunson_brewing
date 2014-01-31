@@ -8,12 +8,12 @@
     = csrf_meta_tags
   %body
     .wrapper
-      = render partial: 'layouts/messages'
       = render partial: 'layouts/header'
       = render partial: 'layouts/nav'
 
       #content-wrapper
         #content
+          = render partial: 'layouts/messages'
           = render partial: 'admin/subnav' if admin_section? && lookup_context.template_exists?('subnav', ['admin'], true)
           = yield
 
