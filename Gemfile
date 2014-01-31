@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'modernizr-rails'
+gem 'compass-rails'
 
 gem 'devise'
 

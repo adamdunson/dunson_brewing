@@ -1,5 +1,7 @@
+@import 'compass'
 @import 'colors'
 
+$wrapper-width: 70em
 $footer-height: 20px
 
 html, body
@@ -23,6 +25,10 @@ body > .wrapper
   min-height: 100%
   height: auto !important
   margin: 0 auto (-$footer-height)
+  background-color: $color8
+  max-width: $wrapper-width
+  //border-left: 1px solid $color4
+  //border-right: 1px solid $color4
 
   #messages
     position: absolute
@@ -39,8 +45,8 @@ body > .wrapper
     overflow: auto
     padding: 0.5em 0.5em 0
     height: 7em
-    background-color: $color1
     color: $color5
+    background-color: $color1
 
     .logo
       position: relative
@@ -49,6 +55,7 @@ body > .wrapper
 
       a
         text-decoration: none
+        color: $color5
 
     .user-links
       position: absolute
@@ -57,6 +64,7 @@ body > .wrapper
 
       a
         font-size: 80%
+        color: $color5
 
   #nav
     font-family: 'Artifika', serif
@@ -88,19 +96,18 @@ body > .wrapper
         background-color: $color2
 
       &.current
-        border-bottom: 1px solid $color2
-        background-color: $color2
+        border-bottom: 1px solid $color8
+        background-color: $color8
 
   #content-wrapper
     position: relative
     overflow: auto
     border-top: 1px solid $color4
-    padding: 1em 0 0
-    background-color: $color2
+    padding: 1em
     color: $color4
 
     #content
-      width: 70%
+      //width: 70%
       margin: 0 auto
 
       #subnav
@@ -122,19 +129,20 @@ body > .wrapper
 
             a
               display: block
-              background-color: #ddd
+              background-color: $color7
               border: 1px solid $color4
               border-radius: 5px 5px 5px 5px
               padding: 0.25em 0
               color: $color4
 
               &:hover, &:focus
-                color: $color6
-                background-color: $color2
+                color: $color4
+                background-color: $color9
                 text-decoration: none
 
               &:active
-                background-color: $color1
+                background-color: $color4
+                color: $color9
 
   #push
     height: $footer-height
@@ -144,3 +152,5 @@ body > .wrapper
   font-size: 10px
   text-align: center
   color: $color4
+  max-width: $wrapper-width
+  margin: 0 auto

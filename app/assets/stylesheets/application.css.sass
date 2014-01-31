@@ -5,6 +5,7 @@
  *= require 'welcome'
  */
 
+@import 'compass'
 @import 'colors'
 @import url(http://fonts.googleapis.com/css?family=Artifika)
 
@@ -15,17 +16,20 @@
 
 body
   margin: 0
-  background-color: $color2
   color: $color4
   font-family: helvetica, arial, verdana, sans-serif
   font-size: 13px
+
+  background-color: $color5
+  @include filter-gradient(black, $color5, vertical)
+  @include background-image(linear-gradient(bottom, black 0%, $color5 100%))
 
 h1, h2, h3, h4, h5, h6
   margin-top: 0
   font-family: 'Artifika', serif
 
 pre
-  background-color: $color3
+  background-color: $color7
   padding: 10px
   font-size: 11px
   white-space: pre-wrap       /* css-3 */
