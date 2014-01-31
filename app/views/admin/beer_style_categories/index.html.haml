@@ -15,5 +15,5 @@
       %td= beer_style_category.name
       %td= beer_style_category.description
       %td= link_to 'Show', [:admin, beer_style_category]
-      %td= link_to 'Edit', edit_admin_beer_style_path(beer_style_category)
+      %td= link_to 'Edit', edit_admin_beer_style_category_path(beer_style_category)
       %td= link_to 'Destroy', [:admin, beer_style_category], :method => :delete, :data => { :confirm => 'Are you sure?' }

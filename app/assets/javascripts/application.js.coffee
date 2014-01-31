@@ -6,4 +6,5 @@
 //= require_tree .
 $(document).ready ->
   $('.fade-out').delay(1500).fadeOut()
-  $('.datepicker').datepicker() if !Modernizr.inputtypes.date
+  if !Modernizr.inputtypes.date
+    $('.datepicker').attr('readonly', 'readonly').datepicker(dateFormat: 'yy-mm-dd')
